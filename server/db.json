@@ -1,0 +1,28 @@
+{
+  "employees": [
+    {
+      "name": "Digamber Singh",
+      "email": "digambersingh126@gmail.com",
+      "phone": "09717172811",
+      "id": 4
+    },
+    {
+      "name": "Digamber Singh.",
+      "email": "digambersingh126@gmail.com",
+      "phone": "09717172811",
+      "id": 5
+    },
+    {
+      "name": "sssd",
+      "email": "dsdsds",
+      "phone": "12356",
+      "id": 6
+    },
+    {
+      "name": "youness",
+      "email": "ABACH",
+      "phone": "500",
+      "id": 7
+    }
+  ]
+}

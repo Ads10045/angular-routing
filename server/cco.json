@@ -1,0 +1,541 @@
+{
+
+  "results": {
+
+    "entities": [
+
+      {
+
+        "entity": {
+
+          "entityId": "721ea876-5738-11ec-bf63-0242ac130002",
+
+          "entityName": "ALPHA",
+
+          "entityLevel": 2,
+
+          "entityIban": "FR3930002013000000702484E11",
+
+          "entityTotalTransactionsAmount": {
+
+            "amount": 1443.77,
+
+            "currency": "EUR"
+
+          }
+
+        },
+
+        "cards": [
+
+          {
+
+            "card": {
+
+              "cardId": "721eaac4-5738-11ec-bf63-0242ac130002",
+
+              "cardType": 51,
+
+              "cardStatus": 60,
+
+              "modifiedStatusDate": "2021-05-01 01:20:10",
+
+              "expirationDate": "2025-05-01 01:20:10",
+
+              "cardNumber": "**** 1470",
+
+              "cardStatementPeriodCode": "C05",
+
+              "deferredPaymentPeriodCode": "5",
+
+              "deferredWithdrawalPeriodCode": "0",
+
+              "rootEntity": {
+
+                "entityId": "721ea876-5738-11ec-bf63-0242ac130002",
+
+                "entityName": "ALPHA"
+
+              },
+
+              "cardHolder": {
+
+                "holderId": "721eaf2e-5738-11ec-bf63-0242ac130002",
+
+                "holderLastName": "Reisman",
+
+                "holderFirstName": "John"
+
+              },
+
+              "cardManager": {
+
+                "managerId": "721eb050-5738-11ec-bf63-0242ac130002",
+
+                "managerLastName": "Reisman",
+
+                "managerFirstName": "John"
+
+              },
+
+              "cardDebitType": "CH"
+
+            },
+
+            "cardTotalTransationsAmount": {
+
+              "amount": 156.18,
+
+              "currency": "EUR"
+
+            }
+
+          },
+
+          {
+
+            "card": {
+
+              "cardId": "721eb140-5738-11ec-bf63-0242ac130002",
+
+              "cardType": 52,
+
+              "cardStatus": 70,
+
+              "modifiedStatusDate": "2021-01-01 01:20:10",
+
+              "expirationDate": "2023-05-01 01:20:10",
+
+              "cardNumber": "**** 5820",
+
+              "cardStatementPeriodCode": "C05",
+
+              "deferredPaymentPeriodCode": "5",
+
+              "deferredWithdrawalPeriodCode": "0",
+
+              "rootEntity": {
+
+                "entityId": "721ea876-5738-11ec-bf63-0242ac130002",
+
+                "entityName": "ALPHA"
+
+              },
+
+              "cardHolder": {
+
+                "holderId": "721eb226-5738-11ec-bf63-0242ac130002",
+
+                "holderLastName": "Worden",
+
+                "holderFirstName": "Sam"
+
+              },
+
+              "cardManager": {
+
+                "managerId": "721eb30c-5738-11ec-bf63-0242ac130002",
+
+                "managerLastName": "Worden",
+
+                "managerFirstName": "Sam"
+
+              },
+
+              "cardDebitType": "CH"
+
+            },
+
+            "cardTotalTransationsAmount": {
+
+              "amount": 1065.14,
+
+              "currency": "EUR"
+
+            }
+
+          },
+
+          {
+
+            "card": {
+
+              "cardId": "721eb4b0-5738-11ec-bf63-0242ac130002",
+
+              "cardType": 53,
+
+              "cardStatus": 80,
+
+              "modifiedStatusDate": "2021-12-01 01:20:10",
+
+              "expirationDate": "2023-05-01 01:20:10",
+
+              "cardNumber": "**** 9630",
+
+              "cardStatementPeriodCode": "C05",
+
+              "deferredPaymentPeriodCode": "5",
+
+              "deferredWithdrawalPeriodCode": "0",
+
+              "rootEntity": {
+
+                "entityId": "721ea876-5738-11ec-bf63-0242ac130002",
+
+                "entityName": "ALPHA"
+
+              },
+
+              "cardHolder": {
+
+                "holderId": "721eb794-5738-11ec-bf63-0242ac130002",
+
+                "holderLastName": "Wladislaw",
+
+                "holderFirstName": "Joseph"
+
+              },
+
+              "cardManager": {
+
+                "managerId": "721eb700-5738-11ec-bf63-0242ac130002",
+
+                "managerLastName": "Wladislaw",
+
+                "managerFirstName": "Joseph"
+
+              },
+
+              "cardDebitType": "CH"
+
+            },
+
+            "cardTotalTransationsAmount": {
+
+              "amount": 222.45,
+
+              "currency": "EUR"
+
+            }
+
+          }
+
+        ]
+
+      },
+
+                  {
+
+        "entity": {
+
+          "entityId": "721ea888-5738-11ec-bf63-0242ac130002",
+
+          "entityName": "BETA",
+
+          "entityLevel": 2,
+
+          "entityIban": "FR7630003007090002050374829",
+
+          "entityTotalTransactionsAmount": {
+
+            "amount": 1869.79,
+
+            "currency": "EUR"
+
+          }
+
+        },
+
+        "cards": [
+
+          {
+
+            "card": {
+
+              "cardId": "721eaac4-5738-11ec-bf63-0242ac130002",
+
+              "cardType": 54,
+
+              "cardStatus": 90,
+
+              "modifiedStatusDate": "2021-12-01 01:20:10",
+
+              "expirationDate": "2022-05-01 01:20:10",
+
+              "cardNumber": "**** 7894",
+
+              "cardStatementPeriodCode": "C05",
+
+              "deferredPaymentPeriodCode": "5",
+
+              "deferredWithdrawalPeriodCode": "0",
+
+              "rootEntity": {
+
+                "entityId": "721ea888-5738-11ec-bf63-0242ac130002",
+
+                "entityName": "BETA"
+
+              },
+
+              "cardHolder": {
+
+                "holderId": "721aaf2e-5738-11ec-bf63-0242ac130002",
+
+                "holderLastName": "Jefferson",
+
+                "holderFirstName": "Robert"
+
+              },
+
+              "cardManager": {
+
+                "managerId": "721ab050-5738-11ec-bf63-0242ac130002",
+
+                "managerLastName": "Jefferson M",
+
+                "managerFirstName": "Robert M"
+
+              },
+
+              "cardDebitType": "CH"
+
+            },
+
+            "cardTotalTransationsAmount": {
+
+              "amount": 223.45,
+
+              "currency": "EUR"
+
+            }
+
+          },
+
+          {
+
+            "card": {
+
+              "cardId": "721eb140-5738-11ec-bf63-0242ac130002",
+
+              "cardType": 52,
+
+              "cardStatus": 70,
+
+              "modifiedStatusDate": "2021-11-01 01:20:10",
+
+              "expirationDate": "2023-05-01 01:20:10",
+
+              "cardNumber": "**** 1590",
+
+              "cardStatementPeriodCode": "C05",
+
+              "deferredPaymentPeriodCode": "5",
+
+              "deferredWithdrawalPeriodCode": "0",
+
+              "rootEntity": {
+
+                "entityId": "721ea888-5738-11ec-bf63-0242ac130002",
+
+                "entityName": "BETA"
+
+              },
+
+              "cardHolder": {
+
+                "holderId": "721ee226-5738-11ec-bf63-0242ac130003",
+
+                "holderLastName": "Franko",
+
+                "holderFirstName": "Victor"
+
+              },
+
+              "cardManager": {
+
+                "managerId": "721ee30c-5738-11ec-bf63-0242ac130003",
+
+                "managerLastName": "Franko M",
+
+                "managerFirstName": "Victor M"
+
+              },
+
+              "cardDebitType": "CH"
+
+            },
+
+            "cardTotalTransationsAmount": {
+
+              "amount": 1869.79,
+
+              "currency": "EUR"
+
+            }
+
+          },
+
+          {
+
+            "card": {
+
+              "cardId": "721eb4b0-5738-11ec-bf63-0242ac130002",
+
+              "cardType": 56,
+
+              "cardStatus": 30,
+
+              "modifiedStatusDate": "2021-12-01 01:20:10",
+
+              "expirationDate": "2024-05-01 01:20:10",
+
+              "cardNumber": "**** 9842",
+
+              "cardStatementPeriodCode": "C05",
+
+              "deferredPaymentPeriodCode": "5",
+
+              "deferredWithdrawalPeriodCode": "0",
+
+              "rootEntity": {
+
+                "entityId": "721ea888-5738-11ec-bf63-0242ac130002",
+
+                "entityName": "BETA"
+
+              },
+
+              "cardHolder": {
+
+                "holderId": "721eb794-5738-11ec-bf63-0242ac130002",
+
+                "holderLastName": "Bowren",
+
+                "holderFirstName": "Clyde"
+
+              },
+
+              "cardManager": {
+
+                "managerId": "721eb700-5738-11ec-bf63-0242ac130002",
+
+                "managerLastName": "Bowren M",
+
+                "managerFirstName": "Clyde M"
+
+              },
+
+              "cardDebitType": "CH"
+
+            },
+
+            "cardTotalTransationsAmount": {
+
+              "amount": 944.01,
+
+              "currency": "EUR"
+
+            }
+
+          },
+
+          {
+
+            "card": {
+
+              "cardId": "721eb4b0-5738-11ec-bf63-0242ac131002",
+
+              "cardType": 51,
+
+              "cardStatus": 30,
+
+              "modifiedStatusDate": "2021-12-01 01:20:10",
+
+              "expirationDate": "2024-05-01 01:20:10",
+
+              "cardNumber": "**** 6431",
+
+              "cardStatementPeriodCode": "C05",
+
+              "deferredPaymentPeriodCode": "5",
+
+              "deferredWithdrawalPeriodCode": "0",
+
+              "rootEntity": {
+
+                "entityId": "721ea888-5738-11ec-bf63-0242ac130002",
+
+                "entityName": "BETA"
+
+              },
+
+              "cardHolder": {
+
+                "holderId": "721eb794-5738-11ec-bf13-0242ac130002",
+
+                "holderLastName": "Armbruster",
+
+                "holderFirstName": "Max"
+
+              },
+
+              "cardManager": {
+
+                "managerId": "721eb700-5738-11ec-bf13-0242ac130002",
+
+                "managerLastName": "Armbruster M",
+
+                "managerFirstName": "Max M"
+
+              },
+
+              "cardDebitType": "CH"
+
+            },
+
+            "cardTotalTransationsAmount": {
+
+              "amount": 293.13,
+
+              "currency": "EUR"
+
+            }
+
+          }
+
+        ]
+
+      }
+
+    ]
+
+  },
+
+  "pagination": {
+
+    "count": 0,
+
+    "currentPage": 0,
+
+    "nbPages": 0
+
+  },
+
+  "sort": {
+
+    "asc": [
+
+      "false"
+
+    ],
+
+    "desc": [
+
+      "true"
+
+    ]
+
+  }
+
+}

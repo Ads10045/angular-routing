@@ -1,0 +1,102 @@
+{
+	"results": {
+		"cards": [
+			{
+				"card": {
+					"cardId": "721eaac4-5738-11ec-bf63-0242ac130001",
+					"cardType": 51,
+					"cardStatus": 60,
+					"modifiedStatusDate": "2021-05-01 01:20:10",
+					"expirationDate": "2025-05-01 01:20:10",
+					"cardNumber": "**** 1470",
+					"cardStatementPeriodCode": "C15",
+					"deferredPaymentPeriodCode": "5",
+					"deferredWithdrawalPeriodCode": "0",
+					"rootEntity": {
+						"entityId": "721ea876-5738-11ec-bf63-0242ac130002",
+						"entityName": "ALPHA"
+					},
+					"cardHolder": {
+						"holderId": "721eaf2e-5738-11ec-bf63-0242ac130002",
+						"holderLastName": "Reisman",
+						"holderFirstName": "John"
+					},
+					"cardManager": {
+						"managerId": "721eb050-5738-11ec-bf63-0242ac130002",
+						"managerLastName": "Reisman",
+						"managerFirstName": "John"
+					},
+					"cardDebitType": "CH"
+				},
+				"cardTotalTransationsAmount": {
+					"amount": 156.18,
+					"currency": "EUR"
+				}
+			},
+			{
+				"card": {
+					"cardId": "721eb140-5738-11ec-bf63-0242ac130002",
+					"cardType": 52,
+					"cardStatus": 70,
+					"modifiedStatusDate": "2021-01-01 01:20:10",
+					"expirationDate": "2023-05-01 01:20:10",
+					"cardNumber": "**** 5820",
+					"cardStatementPeriodCode": "C05",
+					"deferredPaymentPeriodCode": "5",
+					"deferredWithdrawalPeriodCode": "0",
+					"rootEntity": {
+						"entityId": "721ea876-5738-11ec-bf63-0242ac130002",
+						"entityName": "ALPHA"
+					},
+					"cardHolder": {
+						"holderId": "721eb226-5738-11ec-bf63-0242ac130002",
+						"holderLastName": "Worden",
+						"holderFirstName": "Sam"
+					},
+					"cardManager": {
+						"managerId": "721eb30c-5738-11ec-bf63-0242ac130002",
+						"managerLastName": "Worden",
+						"managerFirstName": "Sam"
+					},
+					"cardDebitType": "CH"
+				},
+				"cardTotalTransationsAmount": {
+					"amount": 1065.14,
+					"currency": "EUR"
+				}
+			},
+			{
+				"card": {
+					"cardId": "721eb4b0-5738-11ec-bf63-0242ac130003",
+					"cardType": 53,
+					"cardStatus": 80,
+					"modifiedStatusDate": "2021-12-01 01:20:10",
+					"expirationDate": "2023-05-01 01:20:10",
+					"cardNumber": "**** 9630",
+					"cardStatementPeriodCode": "C20",
+					"deferredPaymentPeriodCode": "5",
+					"deferredWithdrawalPeriodCode": "0",
+					"rootEntity": {
+						"entityId": "721ea876-5738-11ec-bf63-0242ac130002",
+						"entityName": "ALPHA"
+					},
+					"cardHolder": {
+						"holderId": "721eb794-5738-11ec-bf63-0242ac130002",
+						"holderLastName": "Wladislaw",
+						"holderFirstName": "Joseph"
+					},
+					"cardManager": {
+						"managerId": "721eb700-5738-11ec-bf63-0242ac130002",
+						"managerLastName": "Wladislaw",
+						"managerFirstName": "Joseph"
+					},
+					"cardDebitType": "CH"
+				},
+				"cardTotalTransationsAmount": {
+					"amount": 222.45,
+					"currency": "EUR"
+				}
+			}
+			]
+	}
+}

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AngularStarter</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="src/assets/js/mbe_cas.js"></script>
+
+ 
+
+
+</head>
+<body>
+  <div class="w-100 bnpp-chartbar"></div>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-box">
+    <div class="container">
+      <a class="navbar-brand d-flex" href="#">
+        <img src="assets/images/bnpp-logo-conex.png" alt=""><span class="header-logo-moto my-auto">Ma Banque Entreprise</span>
+      </a>
+      <div class="language ml-auto">
+        <a id="i_fr" href="#" class="language-select fr selected" (click)="switchLanguage('fr')">FR</a>
+        <a id="i_en" href="#" class="language-select en ml-3 " (click)="switchLanguage('en')">EN</a>
+      </div>
+    </div>
+  </nav>
+  <div id="identification-body">
+    <div class="container d-flex flex-column flex-lg-row-reverse">
+      <!-- BNPP MBE Identification Block BEGIN --><div class="identification-block mx-auto">
+      
+        <!-- BNPP MBE Help Block BEGIN --><div id="help-block" style="display:none;">
+          <h3 class="pb-3 mb-3"><span>{{ "besoin_aide" | translate }} </span></h3>
+          <button type="button" class="help-close" onclick="manageHelp('close','',event);return false;"></button>
+                  
+          <div id="help-content" style="display:block;"><p>L'aide est momentanément indisponible.<br>Nous mettons tout en œuvre pour la rétablir, veuillez nous excuser de la gêne occasionnée.</p><h4>Problème de connexion ? Besoin d'assistance ?</h4><p>Nous vous invitons à contacter le Centre de Relations Télématiques à votre disposition du Lundi au vendredi de 8h à 18h</p><div id="coordonnees-assistance"></div></div>
+          
+                  
+          <div id="help-content-nvs" style="display: none;">
+            &lt;%-- inWebo ifram --%&gt;
+            <iframe id="nvs_help" width="100%" height="100%" background="none" scrolling="no" frameborder="0" src="about:blank">
+            </iframe>
+          </div>
+          
+        </div>
+        <!-- BNPP MBE Help Block END --><div class="header">
+          <span class="title">{{ "acc_compte" | translate }} </span>
+        </div>
+        <div class="selector row no-gutters">
+          <button class="col nvs" id="nvs-button" onclick="activateMode('nvs');"><span>{{ "navigation" | translate }} <br>{{ "securite" | translate }} </span></button>
+          <div id="bnpp-separator-v"></div>
+          <button class="col lsf active" id="lsf-button" onclick="activateMode('lsf');"><span>{{ "lecteur" | translate }}</span></button>
+          <div id="bnpp-separator-v"></div>
+          <button class="col crt" id="crt-button" onclick="activateMode('crt');"><span>{{ "certificat" | translate }}</span></button>
+        </div>
+        <div class="content" id="connexion-content" style="clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%, 0px 0px, calc(50% - 10px) 0px, 50% 10px, calc(50% + 10px) 0px, 0px 0px);">
+        
+          <!-- Certificate Content BEGIN --><div id="cert_content" class="id-form" style="display: none;">
+            <form class="d-flex flex-column" id="certForm" name="loginPkiForm" method="post" onsubmit="document.getElementById('submit-pki').disabled = true; submitPkiLogin(document.getElementById('num_abonn_crt').value); return false" action="https://cert.login.mbe.staging.bnpparibas.net/login?service=%2Foauth2.0%2FcallbackAuthorize%3Fclient_id%3D1465c69f-1da8-4ebf-bc03-06ab41b31252%26redirect_uri%3Dhttps%253A%252F%252Fqua03-simple-entreprises-bddf.bnpparibas.net%252Fsommaire%252FPseCasServlet%26response_type%3Dcode%26client_name%3DCasOAuthClient">
+              <input type="hidden" name="txtAuthentMode" value=""><input type="hidden" name="BEFORE_LOGIN_REQUEST" value=""><input type="hidden" name="SSO_SESSION_ID" value="SSO_LOGIN"><div id="cert_multiple" style="display:none;">
+                <div class="bnpp-form-group mb-4" id="bnpp-form-group">										
+                  <label for="input" class="control-label i18n" data-i18n="libelle.numero.abonne">Numéro d'abonné</label>
+                  <div class="position-relative">
+                    <input value="" autocomplete="on" id="num_abonn_crt" placeholder=" " name="certificateCredential.subscriber"><button tabindex="-1" class="clear-button close" type="button" onclick="clearInput('num_abonn_crt');return false;"></button>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" name="certificateCredential.certificate" id="certificate" value=""><input type="hidden" name="execution" value="13c7d5ef-de81-4d49-b435-49b438575eed_ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5Llh4QUEwSXUzR1QyeWRlZ2I1THplS1FzTF82N2pnSjJFb3RWWlJ6V1NsY194dTJSM0UtUmlENWhDanlFN0JjbEgzLWpwelJMMjFINERhQjFSZTNPOXFQcnlrdmtDYlBJZnNIbXJWQ05yYlBMVUIwY2FTcWoycy1OYmlaa2Z4SGVqcWlYN2Vla3JqSFFLS1RHSnpUMTFWRW1EUGl6UzRod3J5RlIyYjNMemdZQ2wtLVk4VFN6djZHUUlNb0ZFd0MycG9XcGJUWDhsb0hicmQwbnB1UUJYd3VGRzRUTXA1MVJibC11STFZMWxNSFVxYll5MDF6SUNSVjVJT2J4azM1RWZQN3FVXzI5eEtlc2NKY2VwaTJmRXJSZHNsa2tmYktVcUZuX25rTjdOQjRXeTc1UXIyUGVlYjBlNExvbGhfTmVRbnc1SnVndGp4YTB3eTBYUG1kOUpnVFJva3hteHdVNkVvNlhybldwVkFkdXJIUDh0YmFhaHMzZXFmUEI4SGYtRzN4cjBKVWJFZTMxVjZqby1pTTlKaWpVVDNLLTF5M2U2VVJYbkZvR0hpdVZ5aXhCSHBJVHJjbUZEOGlxb0VQaHczVVNqTjUzYWJLZFdDX2E3elBQNDFkeUdLOUhUMkwxLS1qOTBIRmY0V1R3OXBVT3RlaFRGMDJfeFJUdVJlTnNwOUtJcjFqdFUxMDAxRW1tT2pwVlB2X0w0ck5aY1l6Y2hXcTRsUlJ4WXpFcDkwd3dRXzNwV1ViMzVaSnBUV1FzYklxaGNNeE9nY0E3VmRFR3VCVkhQMXdtZG0yZmxFWEdOSFNkX0Rpb1ZRUS1MU3pscjg1dlF4a201d2o1X3JRMU5uWWpRX1drM3A3U0dYYlNkSEtrZTZHUDBHQ0JURG8yZHBoUHU0N1ZzZWwtSHpBa1NYaUVMRlJRYTlKX2NFMzdncXJyOHdOVzFiYURrMVczVFVVNFlZWmJNNnZJU1dmOGhXZF9uYUxkQllWLTRhUExabGtKRU56ZVlCVUppbUJfR21FckEtc2NaaEI3Z0FZT0JsbXJablRvWlg1NlhFc0ZFNXEyUVBvSFFtdWFJcnZZckFySFVMNVJ3bUstZTFiQ3hYSVJyYnROMy03b29zRDMxcVN2eDRlOXZLbzVRelVobG1YYUJwd252c2F6aGlqa1pYNmx2ajRua1BrNWJBUHBxT2lBRk1kclVQbHotMHA3OGJ0SExHb3pmYWUxYmYxX3NFcm02NEVseUViZlBQR1F0RnpJaGh6NklpN0QtT09vWnFBTUJxdmpKbXFIczJ6VmtHa2NaOEZHX01jWFRkcC1nTDRUMmUxWVNxVmU1aUs4YzdybmFLNF81WEhCMlU1RzJJOTI5MzhoS3VpYWZNcVlVSmJsMXdtajNBLU1JUG5DT280M2dqRGo1X3ByU0UxMWxwUXY2anNFTm9KZEhhOHN0RzVYZk9lazJLVUFvRDR3VUR3Qjc5d29pbEdBT0xLdXZNWEV6S096SklHd3dOckkwYmxDWWN0TU1tRE1uY1BEb1BSaEwxM3p6clVxQWtzY0UzWGM5SDFoOXFmeHYxWTk3S2ZOdTJ4QWZienFjTnAwanhQR0xDXzZzVEtIcExPWGFmcmR0RUMwNURhWkw0YUl2WGpKMlE3T1YzdERJMFZrVlpMdU5rYmllNHNESVQ0WlAwOFNKTHpnQ19jVzhGWkZwZ3JSS1pqcnZyc1UyVWJzM1NoanFQeXg4QWExZ19NOTk3aWJNVnVUZGlhS1M5eldMNUhLUlZqWjFmM2VGMWw4OHVSVk81NlYxN1V1N0h3ODBNS18yb0QtWnJxSTduZVdkZFRvVy1od0wxNldlOEdYQTBJRWlKMmQxajBWbkw1TzBHX1F5RlQ0VzF6bnd3ZWxjb3AtWHNINHVuaFp5VmVtTGRueWltVnlSRHZmaXE1T3NyTlJXc0I4bGpZaHU2d2tVXzZzaU1iWlZLbVVoSGVTWGhVM1FIWl8zWTU3NnlCNF9TQjlNMWtidDE4YkhibkU5ZE82Sm9rSjdGSW9SR0EyMElCVTRDalBPNHB2a3RYdTF6UWE0cGFpNTFXZzVsbndhdUZkUS1fZHp3d19Uak51b1prU05ER21ma3VLNEloQzZia2pKWVpER1JfWXhRMmtyQmcyVjZPMkVBazhjM0JCaGk5Q3NSSkRhM1luTS1uRlVjcGJDdjI2WUdYSWxxdFJxVElkNkl2U244QVhxSGIyUFNYejAxVmNIX3RRVGs0ek1fVndFSkswXzM3SHJROVZDdktJZGNIOWhlNkJTSG9JMzlUZURjMWpTNWwxbkk5Z0xWM1VWREJzZk1zUzJ5dWhhekVIYmtWU2p2dXdnOEMxUDNhSFhWZVFUdDJfVVkzbnRRQXpnbkpzam5NdVMydHBzYl9MYkxlZVVTRGtOZVlQOWRmZmpqZVZZUkFjUWFVYlQ5TnRpeHVSMk5FSnNHdGx4azBxSGRsRzh1T2U0NERsLXJOb1ZyMm1HS0l4cTdXVFQxN2F4R3dfV0VzWEhSQ0dSSVFQZlNjX0NnODNpMGQ4NXBxZjRfbl9VSzFDdzJ0SlZsOHNJOVpBY3pMb3hySF9PeEtnVV9fSVc2ZFREN3FNWVF0bHJWaEx1NGVQVjRrM1Uyc2hoUXNCQW52Qy1rU1lDbDN6cEt6RzZqRW5rTnp0SDg5X2xDY0ZxMUxOVDRxWkdoY0MxZnJwTkJITWktbFJublJjZ3lpTGc5bnp6X2pUWmlsaFk2cGtMVzltQkZHb0QzX29NUFl0V0xKWDFRdnBOdFNRVHJib3VobGNpdVhzNHU3Nkp3aV9LMHgyS2h6c2plLTlzc2NIdzAtclgwMkE4RURLRVB3NlFOREpXWFBpZklqRUVKd1ZwZ0MzNTVpdTVUOTZia1hHdHNvb3M5RWF6eU10TU9vaGFQa1RfSFdHdTRiQWhudTQxWklLZTg0TTZ2VFU0S3ZSUTl1bnhDTmNvdnNMa3NEa1g1TGZzR2w3Mk5iMmRuSFNTc0diaWFDdVVNby15aEktclM2WXVhR2Zob2NqOGdBMUpWUUVZMVNpbjQ4VkpVY2p1LWthWTdfcDhMS2JBejZscThSTG1pZGt4VGN3d25rSDFXSm5Wa09rd3RDRTJ4aGloQ1NrQWpuUWhtWE80Y2lLaXhraER1YlQxRFhDNGlTX0ZoWklGWDcyQjdqcDR0YWo1YnJ6NXVqeHgwN1NaQlhqaGpsR3ppczVZMFlkSDdtUzdVNDJnamtrUVpmZmlBZEtvTHJOTWZLN1U3NC0zTTB5VjZXbWhKd05ydEpGTkZIblFsSVNqal81ZW91X2NiRkhZS1pPcHlDQndPQUo0RW1kNzVrWVJxZy1KVHBIaEFCRFpyVWJHX3hzOEE0X3g0MC1zMlk0bTJfbjc3OTlvNmhvU1B3TFJpLUhCSnE0NkN2aEhyZ1VMcDBUWktKMXNwTE5GVkpuMWk4OUpSZkJDZUlqeXpoTGpXY2Q5QzRsY0ZDc1FfN0JuZmo1RHk3YlBrRFhJUEFhLVF0TEN6eTZTaWZpaE85dTE5ak1HMGNDN092OU1ZQkVXUHdWUnpUUjJUMDYzTGl2VGU3TVNhZklVSS1hcE12SjFXTW5Ncmg0Q0tmVTFZY3BqOGx0SGQ0R0JmTUNtdk1HUGFUcHZ1NmhRS1JITWwwSFdfSmJYRVBQcmhLN2VvSklKT2E1QVZYdWl0RnoxVGZ0bS1XTEN3LXhucEpRR1p5b0U0U2VnbEg3UXZtWlJjSFhfb3pfXzR5Tkozbl92YS1xQ0QxcV9JR2tnV2xXZHliUDlDZXoxQm1HS01ta2duV05SeGNlb2Jyd05pbnlGWEViYS1IZU9mU2lDRFc3Yjl6YWtZSEpkSnYtM1NuQlVjWGZJN3M1cnZSQXNZcmVOOVM4MDFWcklsODJCZU9hdXdxMkVnWDRtams4VlZpZk5zUVFsT0MzTkFTSjV6bDJKbWctWTA2LXVHQnJmbnNDb29oTUhtaVlVZkRsbTVEZlZFcGhLMFJqcE40Q3M1bl9vU0hleXp6cGRsV1h0WS1pbHdZeTJNaDlzNnNfSEtENndYYlc4YkF0UkhuMjRXY3VuT1FNUm9CcERjbGE5ODRGUzJ3VzlmVTRKY3BNY0o3OWkwUTA4RzdZMnp2aGZ0cXRvYnpwOGI3TzRMYUJWaTNVSmJXSEJyZDhLT0Z3WUk2ZFA3dFFMZVRQUXpaWUk2MG9aaWxHeFYzbzRseERLOU40a1hnS3F0MnllZFBlRlU3VTlJMEQ0Rm5mVmhEcEZ3NGVOeFk2UFBsV3k4ZjJQWHhVdjgtenJ6YzVWdGFINGc4U0xqbkh4Z2VmNFZxR3FIS0Z0RnRNaDJPS2l6ZkhzbzAtLW5GMVNwTHdxbEZxSTg0YUNGVWhCYjZtblc0Y1pUQnVnNHgyc0sxMjh3YUJQVWw0MV9oaW80Q1pOcVFkNFZaM3NiNU9EVDFTV0JVU3dGal9TM2Z1LXYxbFB3encyMGd1OWh6SkdaMHZkNnBBY0ZVcGI5UzAtQmtNVUJTTS01TDJkdWZacnJHUE9hUHVzUzZpRk1XU1o0NnhrRnRjNVVWRk82YThNZDhTZnJYVzNIVmJRMS1Dak50N1lKeG1TRzFkY3B5RVZxMlh1Q3JTUWZjSklEcUJEZ1YzOUItZ2ZlZjZMeGRRRFBYdmN4eUFncENYakluaGE4S3hWOE5KWGlIRHVXcEQxQ2F0RkpBZk40VVliYW5pUi1RWWVrYVBXYzJ0MXpqYl9JbDBBTmFhaE11SGhLYzJ2N2N3N0hDQXBNNEV1blVUVGRHUGtzZUpGdC1nRWhBQlNUVXpabDR2MGdwUkxmb1hjbmpteXE0UGNJbGc0VEVkRElmYzQ1bHpYcm1KelctYjlmeVFVRk9PQzlkamdmMXpwWDFEMzVtdkd6QlJBU1dBTEllaGZmSTNGZEVpMUdhUlZsWXN1MzRjcWF5czVFQjhfWW1jOGtzVFFUQzZQTWxJLWZYMWFSenU0c2dCUC04NUZlVzFHaWdpcXdrOEczLU9qZTZWWEJOVTR2d1ZZTjBwdzNreXBEZ3MtY1ZyLXU4SzlVcWdNUnNGSjBERGJ5RGlFbXB6NmYxeWxNWFdldU9hamMwT0dlQ2xEd3pETVdJS3dwWkdzY0VCUTVYWG95Y2pnN1AxcXlsRGlueDJ3UnI3VWg4a25QQ1h4LXVWZk03WEVLc3VwT0E5eUhWX1phLTRhRzVBa2U0RWxXYUZoVXZ6ZWxTck5jTEtpdGF4bjVkeHF0amlLLU9jZTdSRVRyN01nRFVkRExnNHVrbDhVcS1aMEdJbW9qVmdueC1sN2dVUDNGNVpOV0hJTzN6Q2xRNHVHR25rXzY1aXZZdnFqeGx4QWVMQTUtZ1FJOEIxaDhuN2RCX2U3dWhFZElOUTZpSkVaN3M3LVRvb090Q0pYWVZUMzFnbDVFQjRQS1ZDNnpyalhnME9EeUVFdTkyMmZ6ejQ2VXJhTE53dV9wMEdocHVNcUZPYVhQTGFPQy1QdEM3aTZaakNrMTU3ODhWaU9ud29VRW9xQ3NXR0xFTVhsRldER1JWWmJWSnFwLUs4b0lqV2dobGk5TUNUaXpVQzBQc21UeGszZzQzMDIwNkpJaUJUcTZvN0pCRnpOTl9YRjJ4UFJPVGNTMTgwcmlLeUw1QVdXcjk0NlhZLWpRcDRvTUkxeFNqVl9Icm5MeUhRV3BseHFNVmVQblNFZl9xRS0yXzViZ243elQydFhqTEJlM19mODdObTRBOUFqWWVBajhqMEh4eC1SdC1paUh4QnhZR2Nid0s0b3l4RG5EZjlMOWpTOG9vSXFUNHNiTTRnQ2hteTlXZjhma2tiTjVjd19YZkxqbEJvLTktZW1YLTBpelNnb1dUNldTZGR3RGpXS3hHMFg0ZnJsN0tDRFVZTWZubmhiQWFrdlBkcmlOYTI4RDRmSmhUbnMweEplZ1NMQmxubFZQZGxad0QtSTdLVlNrZXdIV2QzWEhMa21zcjBXSGRjODh6cWt2Um5nY0RvdHFScV9iZVdjTjZ3V1pqNHJHSEJyZXJheG9CLUFISmRWdUkwMEdBaXlaLTdGVV9tZ25kQ2VPcEpxTUJZQ2dTWkpQRWZreVRGaE5Mc0VxNFRqcVNDYTBoUVFncGZmWm1HRXd0bGZiNXlnVWhWSEFkbW1LTWNpMk9Uc0twcmpob3kzalpwLTdJZ0VNTzFlZWZqeEFTd2hwV0FRMnlVanJkWGxjZWVsU1FXbkI1VVJtanNOajlvSDhLQ2ZyamlfSTdXTTNqUXYtNDNnZ09TdVBtalVGR01kU1JQRkp1Y1FrSUM0M1AtUkdVTnM1eEp5Z084YzRtUjJYZFJYYjE1ZWZzZ2dHUC0weGVLR1dpOFBVT0VpbjZOdl9sTERUUGpfTXpSaHNmX0FqaFI4bXk1UDA0V0UtdGRRcU83SUZQempwRDZFMTFXbzdRSmNzSlhUMzFxUmQzNGpWamN3NVpUN0JaYUg1LWF0bzE0MU1CZW1TeXJacnJQejRpaGFrSWNvNGNIYjFhWGdRTUJMQWhTSnhVNW5KbF9KOGVzcE1VMmRIN0tnLWk4Y1FheHc2OXI2bTY4UnRieG1BUkFkY2MwbnZaOGpma1pieGREMndwaDd4eWMwa29CX2prUThxMGRRWlBmaWlhcGVFNUc0R0dUTVN3V1l3Q3BTR1pzd0JDVHpETWtZR0FuZzd3U2NnS3o0MUR0M05PM1cxRGJjamZ1NEttbXg1THB0UXB0RXZNdjhxZnlmc01wNHg5WmNINzJibHlFbnVseTVJQndmZVRFenlMbmJ3N0Zvd3QxMmhpSk9yZ3Q2Tm4tRVpQWUlMX2QwQjZaQ1c3Y1dkQV9qbkpSOEdxcUl4dXExVnlKcHZsM205MmFjSE5HZWhHRXlWT0JaOE5DS2ZpSnhILXpYa002RU5WLWMtTUtPWF9YaWFmeTNGN3YtaTRqMlJuUXlaOWVZaEhDaXVOZ1pZNkx3NjAxMHFBbXNkVzZBcFVfTGZQT1VsNTBxWWJBaHl2NXk4NERYRGh4NXIyblJfNmNualZMdVRNckFCVVpXZ2IyMlc3RERHSTlWU01SU05RQWh3QUFDOUJkMXBiMzVocXR0Z0lOYm51czBTQkRIXzZTdW10VkFPNlZ6UC03NFlpQUdWYkJaWW5zTURUTXZzb3BCOUU4YmIwRThENFV0eGNnY2F4aUhuaUVHMnBEOWJyMkRvWm9RVlBNdnhCRjZNMmJGT2NCem13RUpqZ3NjOGxudFdwVmhRby11S29lMjhXdElZRTczdjlSdUd1aHRWODZVZ0xuYllCMHdBaGZnTmRnSmhYU2dMSmQ1OHJGdjNaSHE4LWE2TkxId1JsWmU2NEl1a3VBa2tVUkZDX3hsYmUwMmpvTnd1amtOYUFzV2ZxX096VG5IUGVuZ1BtOFVBR3drdXp3OFhTZ1pwUHFIalNHYS1fZlRQNnpZbGRzZ2NuTU1tOUUxb3NBOXNlWkVCWWZHZGhrNDI2SFBIX1dlc2NWTGg0MnlDbDJwZEVLbFVVQmJmQzhIbm50MEpjcDl0Wk9ES3A0d0NxbEQ1d0puVWlrZGl3b0NHVUlqNWQtUVpzQjB1dTVQZWZzR0VxLW1qcmozdURxRW9jOTRkZGVsMGJSU2F0dGg3NnFaTjNQdTNOZ1lvVHc1dFR0OUo4VVdoWFNNa0JIUGlTSnFWcHdfdmFKTGxaeW5hNFl4Q19Ia3gtckpSREtQZmUzUHlrdkhQZUtpVFNIYk1hd2otaU13SUIzNGhqZ2xPZy5XMDRqX2FqRmFQQzZhUmp6YThWcEV1TzRGMmtuMUQ1Q1Z1NnRFWUFLZDFGVGhacVdzOGtUQ21BcHdVMzBRc0dKYm9Ia1ZTRzRKOGNuS01fXy1wbC1nQQ=="><input type="hidden" name="_eventId" value="submit"><input type="hidden" name="geolocation"><input type="hidden" name="handlerName" value="BNPP_CERTIFICATE_AUTHN"><input type="hidden" id="certificateCredential.idTMX" name="certificateCredential.idTMX" value="8db3dbbf-be87-4586-aee7-d1280ae14992"><button class="btn-bnpp-major important mt-1 mx-auto" id="submit-pki" type="submit" onclick="setCookie('lastAuthentMode', 'crt', 365)"><span>Se connecter</span></button>
+              <div id="bnpp-separator" class="my-5" style="display: block;"></div>
+              <button id="butt_engagement" class="btn-bnpp-major normal mb-3 mx-auto" type="button" onclick="manageEngagements('true');return false;" style="display: block;"><span>Je gère plusieurs abonnements</span></button>
+              <button id="butt_declare_crt" class="btn-bnpp-major normal mb-3 mx-auto" type="button" onclick="submitInwebooDeconnecte(language,'SET_USER_LANG','certificat')" style="display: block;"><span>Déclarer un certificat</span></button>
+              <a id="link-help" class="mx-auto" onclick="manageHelp('show', helpCrt ,event)">Besoin d'aide</a>
+              
+              
+              
+              <div id="returnedErrorCrt" style="display:none">
+                </div>
+
+
+              <div id="returnErrorCrtRedirect" class="bnpp-alert major mt-3" style="display:none">
+                  <table>
+                    <tbody>
+                    <tr>
+                      <td></td>
+                      <td><span id="message_erreur_crt"></span></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div *ngIf="errorMessage" class="alert alert-danger mt-3 mb-0">{{errorMessage}}</div>
+            </form>
+          </div>
+          <!-- Certificate Content END --><!-- Reader Content BEGIN --><div id="lsf_content" class="id-form" style="display: block;">
+           
+           
+           
+            <form
+        *ngIf="!isLoggedIn"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="bnpp-form-group mt-3 mb-4" id="bnpp-form-group">
+          <label for="input" class="control-label i18n" data-i18n="libelle.numero.abonne">{{ "numero_abonne" | translate }} </label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+          />
+         
+        </div>
+        <div class="bnpp-form-group mt-3 mb-4" id="bnpp-form-group">
+          <label for="input" class="control-label i18n" data-i18n="libelle.numero.abonne">{{ "votre_cle_acce" | translate }}</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="4"
+            #password="ngModel"
+          />
+          
+        </div>
+       
+          <button class="btn-bnpp-major important mb-3 mx-auto" type="submit" id="submit-lsf" 
+          name="buttonemvcap" onclick="setCookie('lastAuthentMode', 'lsf', 365)"><span>Se connecter</span></button>
+
+          <button id="connexion_sso" type="button" onclick="manageEngagements('true');
+          return false;" class="btn-bnpp-major normal mb-3 mx-auto" style="display: block;"><span>
+            Se connecter avec la SSO</span></button>
+
+
+          <a class="mx-auto" id="link-help" onclick="manageHelp('show',helpLts,event)">{{ "besoin_aide" | translate }}</a>
+       
+      </form>
+
+
+
+          </div>
+         
+          <div id="nvs_content" class="id-form" style="display: none;">
+
+            <script>
+              var enrolled = "ok";
+            </script>
+            <div id="browser_not_enrolled" style="display: block;">
+              <div class="nvs-grey-icon"></div>
+              <span><h3 class="mt-1 mb-5">1ère connexion à Ma Banque Entreprise ?</h3></span>
+              <button class="btn-bnpp-major important mb-5 mx-auto" type="button" onclick="submitInwebooDeconnecte(language,'SET_USER_LANG','deconnecte')">Enregistrer ce navigateur</button>
+              <a class="nvs-link mb-4" onclick="submitInwebooDeconnecte(language,'SET_USER_LANG','codePerdu')">
+                <span>Code confidentiel perdu ou bloqué ?</span>
+              </a>			
+              
+              <a id="link-help" onclick="manageHelp('show',helpNvs,event)">Besoin d'aide</a>
+            </div>
+            <div id="browser_enrolled" style="display: none;">
+              <form class="d-flex flex-column" method="post" name="loginSafeForm" id="ApprovalSafe" action="#" onsubmit="document.getElementById('submit-nvs').disabled = true; getOnlineOtp(document.getElementById('num_abonn_nvs').value, txtEmvCapUserId.value);  return false">
+                <input type="hidden" name="txtAuthentMode" value="SAFE"><input type="hidden" name="inWeboCredential.otp" value="" id="OTP"><div class="bnpp-form-group mb-2" id="bnpp-form-group">
+                  <label for="input" class="control-label i18n" data-i18n="libelle.numero.abonne">Numéro d'abonné</label>
+                  <div class="position-relative">
+                    <input name="inWeboCredential.mandataryId" value="" autocomplete="on" required="required" id="num_abonn_nvs" placeholder=" "><button tabindex="-1" class="clear-button close" type="button" onclick="clearInput('num_abonn_nvs');return false;"></button>
+                  </div>
+                </div>
+                <div class="bnpp-form-group mt-3 mb-4" id="bnpp-form-group">
+                  <label for="input" class="control-label i18n" data-i18n="libelle.numero.abonne">Code confidentiel</label>
+                  <div class="position-relative">
+                    <input name="txtEmvCapUserId" type="password" value="" autocomplete="off" required="required" id="code_pin_nvs" placeholder=" "><button tabindex="-1" class="clear-button close" type="button" onclick="clearInput('code_pin_nvs');return false;"></button>
+                  </div>
+                </div>
+                <input type="hidden" name="execution" value="13c7d5ef-de81-4d49-b435-49b438575eed_ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5Llh4QUEwSXUzR1QyeWRlZ2I1THplS1FzTF82N2pnSjJFb3RWWlJ6V1NsY194dTJSM0UtUmlENWhDanlFN0JjbEgzLWpwelJMMjFINERhQjFSZTNPOXFQcnlrdmtDYlBJZnNIbXJWQ05yYlBMVUIwY2FTcWoycy1OYmlaa2Z4SGVqcWlYN2Vla3JqSFFLS1RHSnpUMTFWRW1EUGl6UzRod3J5RlIyYjNMemdZQ2wtLVk4VFN6djZHUUlNb0ZFd0MycG9XcGJUWDhsb0hicmQwbnB1UUJYd3VGRzRUTXA1MVJibC11STFZMWxNSFVxYll5MDF6SUNSVjVJT2J4azM1RWZQN3FVXzI5eEtlc2NKY2VwaTJmRXJSZHNsa2tmYktVcUZuX25rTjdOQjRXeTc1UXIyUGVlYjBlNExvbGhfTmVRbnc1SnVndGp4YTB3eTBYUG1kOUpnVFJva3hteHdVNkVvNlhybldwVkFkdXJIUDh0YmFhaHMzZXFmUEI4SGYtRzN4cjBKVWJFZTMxVjZqby1pTTlKaWpVVDNLLTF5M2U2VVJYbkZvR0hpdVZ5aXhCSHBJVHJjbUZEOGlxb0VQaHczVVNqTjUzYWJLZFdDX2E3elBQNDFkeUdLOUhUMkwxLS1qOTBIRmY0V1R3OXBVT3RlaFRGMDJfeFJUdVJlTnNwOUtJcjFqdFUxMDAxRW1tT2pwVlB2X0w0ck5aY1l6Y2hXcTRsUlJ4WXpFcDkwd3dRXzNwV1ViMzVaSnBUV1FzYklxaGNNeE9nY0E3VmRFR3VCVkhQMXdtZG0yZmxFWEdOSFNkX0Rpb1ZRUS1MU3pscjg1dlF4a201d2o1X3JRMU5uWWpRX1drM3A3U0dYYlNkSEtrZTZHUDBHQ0JURG8yZHBoUHU0N1ZzZWwtSHpBa1NYaUVMRlJRYTlKX2NFMzdncXJyOHdOVzFiYURrMVczVFVVNFlZWmJNNnZJU1dmOGhXZF9uYUxkQllWLTRhUExabGtKRU56ZVlCVUppbUJfR21FckEtc2NaaEI3Z0FZT0JsbXJablRvWlg1NlhFc0ZFNXEyUVBvSFFtdWFJcnZZckFySFVMNVJ3bUstZTFiQ3hYSVJyYnROMy03b29zRDMxcVN2eDRlOXZLbzVRelVobG1YYUJwd252c2F6aGlqa1pYNmx2ajRua1BrNWJBUHBxT2lBRk1kclVQbHotMHA3OGJ0SExHb3pmYWUxYmYxX3NFcm02NEVseUViZlBQR1F0RnpJaGh6NklpN0QtT09vWnFBTUJxdmpKbXFIczJ6VmtHa2NaOEZHX01jWFRkcC1nTDRUMmUxWVNxVmU1aUs4YzdybmFLNF81WEhCMlU1RzJJOTI5MzhoS3VpYWZNcVlVSmJsMXdtajNBLU1JUG5DT280M2dqRGo1X3ByU0UxMWxwUXY2anNFTm9KZEhhOHN0RzVYZk9lazJLVUFvRDR3VUR3Qjc5d29pbEdBT0xLdXZNWEV6S096SklHd3dOckkwYmxDWWN0TU1tRE1uY1BEb1BSaEwxM3p6clVxQWtzY0UzWGM5SDFoOXFmeHYxWTk3S2ZOdTJ4QWZienFjTnAwanhQR0xDXzZzVEtIcExPWGFmcmR0RUMwNURhWkw0YUl2WGpKMlE3T1YzdERJMFZrVlpMdU5rYmllNHNESVQ0WlAwOFNKTHpnQ19jVzhGWkZwZ3JSS1pqcnZyc1UyVWJzM1NoanFQeXg4QWExZ19NOTk3aWJNVnVUZGlhS1M5eldMNUhLUlZqWjFmM2VGMWw4OHVSVk81NlYxN1V1N0h3ODBNS18yb0QtWnJxSTduZVdkZFRvVy1od0wxNldlOEdYQTBJRWlKMmQxajBWbkw1TzBHX1F5RlQ0VzF6bnd3ZWxjb3AtWHNINHVuaFp5VmVtTGRueWltVnlSRHZmaXE1T3NyTlJXc0I4bGpZaHU2d2tVXzZzaU1iWlZLbVVoSGVTWGhVM1FIWl8zWTU3NnlCNF9TQjlNMWtidDE4YkhibkU5ZE82Sm9rSjdGSW9SR0EyMElCVTRDalBPNHB2a3RYdTF6UWE0cGFpNTFXZzVsbndhdUZkUS1fZHp3d19Uak51b1prU05ER21ma3VLNEloQzZia2pKWVpER1JfWXhRMmtyQmcyVjZPMkVBazhjM0JCaGk5Q3NSSkRhM1luTS1uRlVjcGJDdjI2WUdYSWxxdFJxVElkNkl2U244QVhxSGIyUFNYejAxVmNIX3RRVGs0ek1fVndFSkswXzM3SHJROVZDdktJZGNIOWhlNkJTSG9JMzlUZURjMWpTNWwxbkk5Z0xWM1VWREJzZk1zUzJ5dWhhekVIYmtWU2p2dXdnOEMxUDNhSFhWZVFUdDJfVVkzbnRRQXpnbkpzam5NdVMydHBzYl9MYkxlZVVTRGtOZVlQOWRmZmpqZVZZUkFjUWFVYlQ5TnRpeHVSMk5FSnNHdGx4azBxSGRsRzh1T2U0NERsLXJOb1ZyMm1HS0l4cTdXVFQxN2F4R3dfV0VzWEhSQ0dSSVFQZlNjX0NnODNpMGQ4NXBxZjRfbl9VSzFDdzJ0SlZsOHNJOVpBY3pMb3hySF9PeEtnVV9fSVc2ZFREN3FNWVF0bHJWaEx1NGVQVjRrM1Uyc2hoUXNCQW52Qy1rU1lDbDN6cEt6RzZqRW5rTnp0SDg5X2xDY0ZxMUxOVDRxWkdoY0MxZnJwTkJITWktbFJublJjZ3lpTGc5bnp6X2pUWmlsaFk2cGtMVzltQkZHb0QzX29NUFl0V0xKWDFRdnBOdFNRVHJib3VobGNpdVhzNHU3Nkp3aV9LMHgyS2h6c2plLTlzc2NIdzAtclgwMkE4RURLRVB3NlFOREpXWFBpZklqRUVKd1ZwZ0MzNTVpdTVUOTZia1hHdHNvb3M5RWF6eU10TU9vaGFQa1RfSFdHdTRiQWhudTQxWklLZTg0TTZ2VFU0S3ZSUTl1bnhDTmNvdnNMa3NEa1g1TGZzR2w3Mk5iMmRuSFNTc0diaWFDdVVNby15aEktclM2WXVhR2Zob2NqOGdBMUpWUUVZMVNpbjQ4VkpVY2p1LWthWTdfcDhMS2JBejZscThSTG1pZGt4VGN3d25rSDFXSm5Wa09rd3RDRTJ4aGloQ1NrQWpuUWhtWE80Y2lLaXhraER1YlQxRFhDNGlTX0ZoWklGWDcyQjdqcDR0YWo1YnJ6NXVqeHgwN1NaQlhqaGpsR3ppczVZMFlkSDdtUzdVNDJnamtrUVpmZmlBZEtvTHJOTWZLN1U3NC0zTTB5VjZXbWhKd05ydEpGTkZIblFsSVNqal81ZW91X2NiRkhZS1pPcHlDQndPQUo0RW1kNzVrWVJxZy1KVHBIaEFCRFpyVWJHX3hzOEE0X3g0MC1zMlk0bTJfbjc3OTlvNmhvU1B3TFJpLUhCSnE0NkN2aEhyZ1VMcDBUWktKMXNwTE5GVkpuMWk4OUpSZkJDZUlqeXpoTGpXY2Q5QzRsY0ZDc1FfN0JuZmo1RHk3YlBrRFhJUEFhLVF0TEN6eTZTaWZpaE85dTE5ak1HMGNDN092OU1ZQkVXUHdWUnpUUjJUMDYzTGl2VGU3TVNhZklVSS1hcE12SjFXTW5Ncmg0Q0tmVTFZY3BqOGx0SGQ0R0JmTUNtdk1HUGFUcHZ1NmhRS1JITWwwSFdfSmJYRVBQcmhLN2VvSklKT2E1QVZYdWl0RnoxVGZ0bS1XTEN3LXhucEpRR1p5b0U0U2VnbEg3UXZtWlJjSFhfb3pfXzR5Tkozbl92YS1xQ0QxcV9JR2tnV2xXZHliUDlDZXoxQm1HS01ta2duV05SeGNlb2Jyd05pbnlGWEViYS1IZU9mU2lDRFc3Yjl6YWtZSEpkSnYtM1NuQlVjWGZJN3M1cnZSQXNZcmVOOVM4MDFWcklsODJCZU9hdXdxMkVnWDRtams4VlZpZk5zUVFsT0MzTkFTSjV6bDJKbWctWTA2LXVHQnJmbnNDb29oTUhtaVlVZkRsbTVEZlZFcGhLMFJqcE40Q3M1bl9vU0hleXp6cGRsV1h0WS1pbHdZeTJNaDlzNnNfSEtENndYYlc4YkF0UkhuMjRXY3VuT1FNUm9CcERjbGE5ODRGUzJ3VzlmVTRKY3BNY0o3OWkwUTA4RzdZMnp2aGZ0cXRvYnpwOGI3TzRMYUJWaTNVSmJXSEJyZDhLT0Z3WUk2ZFA3dFFMZVRQUXpaWUk2MG9aaWxHeFYzbzRseERLOU40a1hnS3F0MnllZFBlRlU3VTlJMEQ0Rm5mVmhEcEZ3NGVOeFk2UFBsV3k4ZjJQWHhVdjgtenJ6YzVWdGFINGc4U0xqbkh4Z2VmNFZxR3FIS0Z0RnRNaDJPS2l6ZkhzbzAtLW5GMVNwTHdxbEZxSTg0YUNGVWhCYjZtblc0Y1pUQnVnNHgyc0sxMjh3YUJQVWw0MV9oaW80Q1pOcVFkNFZaM3NiNU9EVDFTV0JVU3dGal9TM2Z1LXYxbFB3encyMGd1OWh6SkdaMHZkNnBBY0ZVcGI5UzAtQmtNVUJTTS01TDJkdWZacnJHUE9hUHVzUzZpRk1XU1o0NnhrRnRjNVVWRk82YThNZDhTZnJYVzNIVmJRMS1Dak50N1lKeG1TRzFkY3B5RVZxMlh1Q3JTUWZjSklEcUJEZ1YzOUItZ2ZlZjZMeGRRRFBYdmN4eUFncENYakluaGE4S3hWOE5KWGlIRHVXcEQxQ2F0RkpBZk40VVliYW5pUi1RWWVrYVBXYzJ0MXpqYl9JbDBBTmFhaE11SGhLYzJ2N2N3N0hDQXBNNEV1blVUVGRHUGtzZUpGdC1nRWhBQlNUVXpabDR2MGdwUkxmb1hjbmpteXE0UGNJbGc0VEVkRElmYzQ1bHpYcm1KelctYjlmeVFVRk9PQzlkamdmMXpwWDFEMzVtdkd6QlJBU1dBTEllaGZmSTNGZEVpMUdhUlZsWXN1MzRjcWF5czVFQjhfWW1jOGtzVFFUQzZQTWxJLWZYMWFSenU0c2dCUC04NUZlVzFHaWdpcXdrOEczLU9qZTZWWEJOVTR2d1ZZTjBwdzNreXBEZ3MtY1ZyLXU4SzlVcWdNUnNGSjBERGJ5RGlFbXB6NmYxeWxNWFdldU9hamMwT0dlQ2xEd3pETVdJS3dwWkdzY0VCUTVYWG95Y2pnN1AxcXlsRGlueDJ3UnI3VWg4a25QQ1h4LXVWZk03WEVLc3VwT0E5eUhWX1phLTRhRzVBa2U0RWxXYUZoVXZ6ZWxTck5jTEtpdGF4bjVkeHF0amlLLU9jZTdSRVRyN01nRFVkRExnNHVrbDhVcS1aMEdJbW9qVmdueC1sN2dVUDNGNVpOV0hJTzN6Q2xRNHVHR25rXzY1aXZZdnFqeGx4QWVMQTUtZ1FJOEIxaDhuN2RCX2U3dWhFZElOUTZpSkVaN3M3LVRvb090Q0pYWVZUMzFnbDVFQjRQS1ZDNnpyalhnME9EeUVFdTkyMmZ6ejQ2VXJhTE53dV9wMEdocHVNcUZPYVhQTGFPQy1QdEM3aTZaakNrMTU3ODhWaU9ud29VRW9xQ3NXR0xFTVhsRldER1JWWmJWSnFwLUs4b0lqV2dobGk5TUNUaXpVQzBQc21UeGszZzQzMDIwNkpJaUJUcTZvN0pCRnpOTl9YRjJ4UFJPVGNTMTgwcmlLeUw1QVdXcjk0NlhZLWpRcDRvTUkxeFNqVl9Icm5MeUhRV3BseHFNVmVQblNFZl9xRS0yXzViZ243elQydFhqTEJlM19mODdObTRBOUFqWWVBajhqMEh4eC1SdC1paUh4QnhZR2Nid0s0b3l4RG5EZjlMOWpTOG9vSXFUNHNiTTRnQ2hteTlXZjhma2tiTjVjd19YZkxqbEJvLTktZW1YLTBpelNnb1dUNldTZGR3RGpXS3hHMFg0ZnJsN0tDRFVZTWZubmhiQWFrdlBkcmlOYTI4RDRmSmhUbnMweEplZ1NMQmxubFZQZGxad0QtSTdLVlNrZXdIV2QzWEhMa21zcjBXSGRjODh6cWt2Um5nY0RvdHFScV9iZVdjTjZ3V1pqNHJHSEJyZXJheG9CLUFISmRWdUkwMEdBaXlaLTdGVV9tZ25kQ2VPcEpxTUJZQ2dTWkpQRWZreVRGaE5Mc0VxNFRqcVNDYTBoUVFncGZmWm1HRXd0bGZiNXlnVWhWSEFkbW1LTWNpMk9Uc0twcmpob3kzalpwLTdJZ0VNTzFlZWZqeEFTd2hwV0FRMnlVanJkWGxjZWVsU1FXbkI1VVJtanNOajlvSDhLQ2ZyamlfSTdXTTNqUXYtNDNnZ09TdVBtalVGR01kU1JQRkp1Y1FrSUM0M1AtUkdVTnM1eEp5Z084YzRtUjJYZFJYYjE1ZWZzZ2dHUC0weGVLR1dpOFBVT0VpbjZOdl9sTERUUGpfTXpSaHNmX0FqaFI4bXk1UDA0V0UtdGRRcU83SUZQempwRDZFMTFXbzdRSmNzSlhUMzFxUmQzNGpWamN3NVpUN0JaYUg1LWF0bzE0MU1CZW1TeXJacnJQejRpaGFrSWNvNGNIYjFhWGdRTUJMQWhTSnhVNW5KbF9KOGVzcE1VMmRIN0tnLWk4Y1FheHc2OXI2bTY4UnRieG1BUkFkY2MwbnZaOGpma1pieGREMndwaDd4eWMwa29CX2prUThxMGRRWlBmaWlhcGVFNUc0R0dUTVN3V1l3Q3BTR1pzd0JDVHpETWtZR0FuZzd3U2NnS3o0MUR0M05PM1cxRGJjamZ1NEttbXg1THB0UXB0RXZNdjhxZnlmc01wNHg5WmNINzJibHlFbnVseTVJQndmZVRFenlMbmJ3N0Zvd3QxMmhpSk9yZ3Q2Tm4tRVpQWUlMX2QwQjZaQ1c3Y1dkQV9qbkpSOEdxcUl4dXExVnlKcHZsM205MmFjSE5HZWhHRXlWT0JaOE5DS2ZpSnhILXpYa002RU5WLWMtTUtPWF9YaWFmeTNGN3YtaTRqMlJuUXlaOWVZaEhDaXVOZ1pZNkx3NjAxMHFBbXNkVzZBcFVfTGZQT1VsNTBxWWJBaHl2NXk4NERYRGh4NXIyblJfNmNualZMdVRNckFCVVpXZ2IyMlc3RERHSTlWU01SU05RQWh3QUFDOUJkMXBiMzVocXR0Z0lOYm51czBTQkRIXzZTdW10VkFPNlZ6UC03NFlpQUdWYkJaWW5zTURUTXZzb3BCOUU4YmIwRThENFV0eGNnY2F4aUhuaUVHMnBEOWJyMkRvWm9RVlBNdnhCRjZNMmJGT2NCem13RUpqZ3NjOGxudFdwVmhRby11S29lMjhXdElZRTczdjlSdUd1aHRWODZVZ0xuYllCMHdBaGZnTmRnSmhYU2dMSmQ1OHJGdjNaSHE4LWE2TkxId1JsWmU2NEl1a3VBa2tVUkZDX3hsYmUwMmpvTnd1amtOYUFzV2ZxX096VG5IUGVuZ1BtOFVBR3drdXp3OFhTZ1pwUHFIalNHYS1fZlRQNnpZbGRzZ2NuTU1tOUUxb3NBOXNlWkVCWWZHZGhrNDI2SFBIX1dlc2NWTGg0MnlDbDJwZEVLbFVVQmJmQzhIbm50MEpjcDl0Wk9ES3A0d0NxbEQ1d0puVWlrZGl3b0NHVUlqNWQtUVpzQjB1dTVQZWZzR0VxLW1qcmozdURxRW9jOTRkZGVsMGJSU2F0dGg3NnFaTjNQdTNOZ1lvVHc1dFR0OUo4VVdoWFNNa0JIUGlTSnFWcHdfdmFKTGxaeW5hNFl4Q19Ia3gtckpSREtQZmUzUHlrdkhQZUtpVFNIYk1hd2otaU13SUIzNGhqZ2xPZy5XMDRqX2FqRmFQQzZhUmp6YThWcEV1TzRGMmtuMUQ1Q1Z1NnRFWUFLZDFGVGhacVdzOGtUQ21BcHdVMzBRc0dKYm9Ia1ZTRzRKOGNuS01fXy1wbC1nQQ=="><input type="hidden" name="_eventId" value="submit"><input type="hidden" name="geolocation"><input type="hidden" name="handlerName" value="BNPP_INWEBO_AUTH"><input type="hidden" id="inWeboCredential.idTMX" name="inWeboCredential.idTMX" value="8db3dbbf-be87-4586-aee7-d1280ae14992"><div id="heliumDesign" displaytype="inline" container="inweboAuthenticate" rounded="0" shaded="0" withborder="0" withtitle="0" withlogo="0" withactiontitle="0" skin="mobile"></div>
+
+                <div id="inweboAuthenticate" lang="fr" style="display:none" action="authenticate" alias="@{${@environment.getProperty('bnpp.mbe.dsp2.neon.id')}}" hide_user_profile="1"><div class="iw_main_container" id="iw_main_container" style="width: 0px; height: 0px; display: inline; position: inherit;" width="0" height="0"> <div id="iw_outer_design_container" style="border: none; padding: 0px; margin: 0px; background: transparent;">  <div id="iw_design_container">  <div id="iw_title" style="display: none; height: 0px;">    <span id="iw_title_left">MBE-INT04</span>  </div>  <div id="iw_content_container" style="background: transparent;">  <iframe name="inwebo" id="inwebo" scrolling="auto" src="https://ult-inwebo.com/webapp/ult?action=authenticate&amp;lang=fr&amp;logo=0&amp;actiontitle=0&amp;referrer=fe0708155c5ca0629e929d859717aa1c&amp;verbose=0&amp;iwlib=minify&amp;maincolor=%23888888&amp;skin=mobile&amp;displaytype=inline&amp;show_profiles=0&amp;hide_user_profile=1" style="border:none;height:auto;" frameborder="0"></iframe>  </div> </div> </div></div></div>
+                <div id="heliumActivate" lang="fr" style="display:none" action="activate" alias="@{${@environment.getProperty('bnpp.mbe.dsp2.neon.id')}}"></div>
+
+                <button class="btn-bnpp-major important mb-3 mx-auto" type="submit" id="submit-nvs" onclick="setCookie('lastAuthentMode', 'nvs', 365)"><span>Se connecter</span></button>
+                
+                <a class="nvs-link mb-3 text-center" onclick="submitInwebooDeconnecte(language,'SET_USER_LANG','codePerduUnCode')">
+                  <span>Code confidentiel perdu ou bloqué ?</span>
+                </a>
+                <a id="link-help" class="mx-auto" onclick="manageHelp('show',helpNvsE,event)">Besoin d'aide</a>
+                <div id="inwebo_exceptions_enrolled" class="bnpp-alert major mt-3" style="display: block;">
+                    <table>
+                      <tbody>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <div class="notification notification-error notification-error-wide">
+                            <span><div class="line-height_inwebo_exceptions_enrolled"><span id="PASSWORD_IS_WRONG_GetOtp" class="erreur_message_code message" style="display: none;">Numéro de mandataire ou code confidentiel saisi incorrect</span><span id="USER_IS_BLOCKED_GetOtp" class="erreur_message_code message" style="display: none;">Code confidentiel bloqué</span><span id="TOKEN_IS_BLOCKED_GetOtp" class="erreur_message_code message" style="display: none;">Code confidentiel bloqué</span><span id="UNEXPECTED_ERROR_GetOtp" class="erreur_message_code message" style="display: none;">Le service est actuellement indisponible. Veuillez réessayer ultérieurement.</span><span id="GENERIC_EXCEPTION_GetOtp" class="erreur_message_code message" style="display: none;">Le service est actuellement indisponible. Veuillez réessayer ultérieurement.</span><span id="USER_IS_BLOCKED_OnInit" class="erreur_message_code message" style="display: none;">Code confidentiel bloqué</span><span id="TOKEN_IS_BLOCKED_OnInit" class="erreur_message_code message" style="display: none;">Code confidentiel bloqué</span><span id="UNEXPECTED_ERROR_OnInit" class="erreur_message_code message" style="display: none;">Code confidentiel bloqué</span><span id="GENERIC_EXCEPTION_OnInit" class="erreur_message_code message" style="display: block;">Le service est actuellement indisponible. Veuillez réessayer ultérieurement.</span></div></span>
+                          </div>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <div id="returnedErrorNvs" style="display:none">
+                  </div>
+                <div id="nvs_technicalException" class="bnpp-alert major mt-3" style="display: none"></div>
+                <div id="returnErrorNvsRedirect" class="bnpp-alert major mt-3" style="display:none">
+                  <table>
+                    <tbody>
+                    <tr>
+                      <td></td>
+                      <td><span id="message_erreur_nvs"></span></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+
+              
+            </div>
+          </div>
+          <!-- NVS Content END --></div>
+      </div>
+      <!-- BNPP MBE Identification Block END --><!-- BNPP MBE Media Block BEGIN --><div class="media-block py-4 p-lg-4">
+        <div id="bloc-actu">						
+        </div>
+      </div>
+      <!-- BNPP MBE Media Block END --></div>
+  </div>
+
+
+</body>
+</html>

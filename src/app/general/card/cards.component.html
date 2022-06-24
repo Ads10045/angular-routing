@@ -1,0 +1,151 @@
+<div id="error-t1" class="bnpp-alert major my-3  {{ isHideMajor }}" >
+   <table>
+      <tbody>
+         <tr>
+            <td></td>
+            <td>
+               <em>Ceci est un message d'erreur majeur</em>
+               <span>{{errorMessage}}.</span>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <i class="close fas fa-times" onclick="CloseAlert('#error-t1');"></i>
+</div>
+<div id="error-f1" class="bnpp-alert minor my-3 {{ isHideMinor }}">
+   <table>
+      <tbody>
+         <tr>
+            <td></td>
+            <td>
+               <em>Ceci est un message d'erreur mineur</em>
+               <span>Vous avez la possibilité de fermer ce message d'erreur en cliquant sur la
+               croix de fermeture en haut à droite de ce message.</span>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <i class="close fas fa-times" onclick="CloseAlert('#error-f1');"></i>
+</div>
+<div class="container custom-container-2">
+<div class="d-flex position-relative criterias">
+   <div class="toolbox d-flex ml-auto p-2 m-3 border-0">
+   </div>
+</div>
+<div class="criterias p-3">
+   <div class="row">
+      <div class="col-12 col-lg-6 col-xl px-3 mb-3">
+         <label for="crit-text"><span>Statut cartes</span></label>
+         <div class="bnpp-select d-flex">
+            <div class="dropdown w-100">
+               <select name="text_field" id="crit-status">
+                  <option value="1">Tous</option>
+                  <option value="2">Actives</option>
+                  <option value="3">Opposées</option>
+               </select>
+            </div>
+         </div>
+      </div>
+      <div class="col-12 col-lg-6 col-xl px-3 mb-3">
+         <label for="crit-text"><span>Cartes avec mouvement</span></label>
+         <div class="bnpp-select d-flex">
+            <div class="dropdown w-100">
+               <select name="text_field" id="crit-movement">
+                  <option value="1">Oui</option>
+                  <option value="2">Non</option>
+               </select>
+            </div>
+         </div>
+      </div>
+      <div class="col-12 col-lg-6 col-xl px-3 mb-3">
+         <label for="crit-text"><span>Filtrer par</span></label>
+         <div class="bnpp-select d-flex">
+            <div class="dropdown w-100">
+               <select name="text_field" id="crit-filter">
+                  <option value="1">Date d'opération</option>
+                  <option value="2">Date de débit/crédit</option>
+               </select>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="bnpp-separator" class="my-3"></div>
+   <div class="w-100 bnpp-app-footer">
+      <button class="btn-bnpp-minor cancel i-reset-cancel mr-0 mr-md-2">Réinitialiser</button>
+      <button class="btn-bnpp-minor important mb-3 mb-md-0">Appliquer</button>
+   </div>
+</div>
+<div   class="criterias p-3"  *ngFor="let g of objectKeys(results.entities)">
+   <div class="flex-column flex-md-row d-flex pt-2" >
+      <span class="bnpp-green-light font-14 font-weight-bold my-auto flex-shrink-0 mr-2">BioTech
+      >{{ results.entities[g].entity.entityIban }}</span>
+      <div id="bnpp-separator" class="my-3 my-md-auto w-100"></div>
+      <div class="flex-shrink-0 my-auto ml-0 ml-md-2">
+         <u class="tooltip-white tooltip-wide wrap bnpp-grey-dark font-weight-bold" id="tooltipTotal1" data-toggle="tooltip" data-placement="bottom" data-container="#tooltipTotal1" data-html="true" title="" data-original-title="
+            <span class='bnpp-grey-light'>Total des mouvements de la période sélectionnée.</span>
+            ">
+         Total des opérations :
+         </u>
+         <span class="bnpp-red-mild font-weight-bold mx-1">{{ results.entities[g].entity.entityTotalTransactionsAmount.amount }} {{ results.entities[g].entity.entityTotalTransactionsAmount.currency }} </span>
+         <button class="btn-bnpp-minor normal mt-2 mt-sm-0" >Voir le détail
+         </button>
+      </div>
+   </div>
+   <div class="results pb-3">
+      <div class="mt-3 sub-content">
+         <div class="grid-header d-flex">
+            <div class="w-100 row no-gutters px-2 pl-lg-3 pr-lg-0">
+               <div class="col-6 col-lg-3 py-3 px-1 my-auto">
+                  <span>Nom du porteur</span>
+                  <!--                                                                                                                                                                                                                        <i id="sortCarrier1" class="font-13 bnpp-green-light ml-2 fas fa-arrow-up cursor-pointer" onclick="sortItem(sortCarrier1);"></i> -->
+               </div>
+               <div class="d-flex col-3 col-lg-2 py-3 px-1 my-auto">
+                  <span>N° de carte</span>
+               </div>
+               <div class="d-flex col-3 col-lg-2 py-3 px-1 my-auto">
+                  <span>Type de carte</span>
+               </div>
+               <div class="d-none d-lg-flex col-2 py-3 px-1 my-auto">
+                  <span>Statut carte</span>
+               </div>
+               <div class="d-none d-lg-flex col-3 col-lg-3 py-3 px-1 my-auto">
+                  <span class="text-right ml-auto">Total des prélèvements</span>
+               </div>
+            </div>
+            <div class="tools d-flex pl-2">
+               <span><button class="bnpp-functionnal-button card invisible"></button></span>
+            </div>
+         </div>
+         <div class="grid-content pointer px-2 pl-lg-3 pr-lg-0"  *ngFor="let k of objectKeys(results.entities[g].cards)" >
+            <div class="d-flex">
+               <div class="w-100 row no-gutters">
+                  <div class="d-flex col-6 col-lg-3 py-3 px-1 my-auto">
+                     <div id="" class="d-flex align-items-center icon-user mr-2" style="background: rgb(235,177,65);">
+                        <span class="m-auto">FP</span>
+                     </div>
+                     <span class="font-weight-bold">{{ results.entities[g].cards[k].card.cardManager.managerFirstName }} - {{ results.entities[g].cards[k].card.cardManager.managerLastName}}</span>
+                  </div>
+                  <div class="d-flex col-3 col-lg-2 py-3 px-1 my-auto">
+                     <span>{{ results.entities[g].cards[k].card.cardNumber }}</span>
+                  </div>
+                  <div class="d-flex col-3 col-lg-2 py-3 px-1 my-auto">
+                     <span>{{ getStatusCode( results.entities[g].cards[k].card.cardType) }}</span>
+                  </div>
+                  <div class="d-flex col-12 col-lg-2 px-1 pb-3 pb-lg-0 my-auto">
+                     <span class="tag active">Active</span>
+                  </div>
+                  <div class="d-flex col-12 col-lg-3 px-1 pb-3 pb-lg-0 my-auto">
+                     <span class="mr-auto mr-lg-0 ml-lg-auto">
+                     <span class="d-inline d-lg-none font-13 bnpp-grey-mild">Total des prélèvements : </span>
+                     {{ results.entities[g].cards[k].cardTotalTransationsAmount.amount }} {{ results.entities[g].cards[k].cardTotalTransationsAmount.currency }}
+                     </span>
+                  </div>
+               </div>
+               <div class="tools border-left-0 d-flex pl-2 my-2 my-lg-0 flex-column flex-md-row">
+                  <span><button class="bnpp-functionnal-button card tooltip-black" id="tooltip1" data-toggle="tooltip" data-placement="bottom" data-container="#tooltip1" title="Voir les caractéristiques de la carte" onclick="showCardDetails('card-info-1');"></button></span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

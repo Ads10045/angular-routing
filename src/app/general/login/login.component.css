@@ -1,0 +1,810 @@
+/* Surcharge CSS Page ID */
+body {
+	background-color: #fff;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+a#i_fr, a#i_en {
+    padding-right: 10px;
+	font-family: "Roboto", sans-serif;
+}
+p, ul {
+	margin-bottom:0.75rem;
+}
+
+button:focus, input:focus {
+	outline:0;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input:required {
+    box-shadow:none;
+}
+input:invalid {
+    box-shadow:none;
+} 
+
+#bnpp-separator {
+	height:1px;
+	width:100%;
+	background-color:#e7e7e7;
+}
+
+#bnpp-separator-v {
+	height:70%;
+	width:1px;
+	background-color:#e7e7e7;
+	margin:auto 0;
+}
+
+.selector #bnpp-separator-v {
+	height: 100px;
+	width: 1px;
+	background-color: #fff;
+	opacity: 0.3;
+	margin: -5px auto auto auto;
+	padding-left: 0px;
+	flex-shrink: 0;
+	padding-right: 0;
+}
+
+.bnpp-chartbar {
+	height: 0.625rem;
+	background: linear-gradient(90deg, rgba(16,144,92,1) 3.5%, rgba(0,171,122,1) 100%);
+}
+
+/****************** cookiebox ******************/
+.cookiebox {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    max-width: 560px;
+    z-index: 10;
+	background-color: #fff;
+    border-radius: 6px;
+	-webkit-box-shadow: 0px 0px 30px 11px rgba(0,0,0,0.26);
+	-moz-box-shadow: 0px 0px 30px 11px rgba(0,0,0,0.26);
+	box-shadow: 0px 0px 30px 11px rgba(0,0,0,0.26);
+}
+
+.cookiebox h3 {
+	font-family: 'BNPSans';
+    font-weight: 700;
+    font-size: 22px;
+	color:#333;
+}
+
+.cookiebox p {
+	font-size:14px;
+	color: #313131;
+	line-height:28px;
+}
+
+.cookiebox u {
+	color:#26A676;
+	text-decoration:underline;
+	cursor:pointer;
+
+}
+
+
+/** Fraud Alert Box **/
+.fraud-alert {
+	background-color: #E75E54;
+    color: #fff;
+}
+
+.fraud-alert h5 {
+	font-family: 'BNPSans';
+    font-weight: 500;
+    font-size: 16px;
+	margin-bottom:0.3rem;
+}
+
+.fraud-alert p {
+    font-size: 14px;
+	opacity:0.85;
+}
+
+.fraud-alert a {
+    color:#fff;
+	text-decoration:underline;
+	font-size: 14px;
+}
+
+	
+/****************** Navbar ******************/
+nav.navbar-box {
+	background-color:#fff;
+	display:block;
+	padding:0;
+}
+
+nav .navbar-brand {
+	padding: 20px 0;
+}
+
+nav .navbar-brand img {
+	margin-right: 15px;
+	height: 40px;
+	width:auto;
+}
+
+nav .header-logo-moto {
+    padding: 2px 0 1px 15px;
+    display: inline-block;
+    line-height: 16px;
+    text-transform: uppercase;
+    font-family: 'BNPSans';
+    font-weight: 700;
+    border-left: 1px solid #cbcbcb;
+    font-size: 16px;
+    color: #7c7a7c;
+}
+
+nav.navbar-box {
+	-webkit-box-shadow: 0px 2px 9px 0px rgba(162,162,162,0.5);
+	-moz-box-shadow: 0px 2px 9px 0px rgba(162,162,162,0.5);
+	box-shadow: 0px 2px 9px 0px rgba(162,162,162,0.5);
+	padding-right: 0;
+	z-index: 999;
+}
+
+nav .navbar-nav-scroll {
+	background-color:#fff;
+	float:right;
+}
+
+nav .language-select {
+	color: #3F3B3D;
+    font-size: 14px;
+    font-family: "BNPSans";
+    text-decoration: none;
+}
+
+nav .language-select.selected {
+	color: #26A676;
+	font-weight:500;
+	pointer-events: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/****************** MBE ALERTS ******************/
+.bnpp-alert {
+    font-size: 12px;
+	padding: 12px 12px 12px 6px;
+    border-radius: 6px;
+    color: #3f3f3f;
+	font-family: 'Roboto', sans-serif;
+}
+
+.bnpp-alert.minor {
+	background-color: #fff9e7;
+	border: 1px solid #f0c87f;
+}
+
+.bnpp-alert.minor em, .bnpp-alert.minor i  {
+    color: #ecb346;
+	font-style:normal;
+	font-weight:900;
+	display:block;
+	margin-bottom: 4px;
+}
+
+
+.bnpp-alert.major {
+	background-color: #fff7f7;
+	border: 1px solid #e55e5d;
+}
+
+
+.bnpp-alert.major em, .bnpp-alert.major i  {
+    color: #e55e5d;
+	font-style:normal;
+	font-weight:900;
+	display:block;
+	margin-bottom: 4px;
+}
+
+
+/****************** MBE BUTTONS ******************/
+button.btn-bnpp-major {
+	padding: 12.5px 50px;
+	border-radius: 24px;
+	font-size: 14px;
+	cursor: pointer;
+	outline: none;
+	transition: 0.2s;
+	transition-property: all;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+	transition-delay: 0s;
+	font-family: 'Roboto', sans-serif;
+}
+
+button.btn-bnpp-major.important {
+    color: #fff;
+    border: 1px solid #26a676;
+    background: #26a676;
+}
+
+button.btn-bnpp-major.important:hover {
+	color: #26a676;
+	border-color: #26a676;
+	background: #fff;
+}
+
+button.btn-bnpp-major.normal {
+	padding: 12.5px 25px;
+	width:calc( 100% - 5em);
+    color: #888;
+    border: 1px solid #888;
+    background: transparent;
+}
+
+button.btn-bnpp-major.normal:hover {
+	color: #26a676;
+	border-color: #26a676;
+	background: transparent;
+}
+
+button.btn-bnpp-major.sensible {
+    color: #fff;
+    border: 1px solid #e55e5d;
+    background: #e55e5d;
+}
+
+button.btn-bnpp-major.sensible:hover {
+    color: #e55e5d;
+    background: #fff;
+}
+
+button.btn-bnpp-major.cancel {
+    color: #888;
+    border: 1px solid #888;
+    background: #fff;
+}
+
+button.btn-bnpp-major.cancel:hover {
+    color: #e55e5d;
+    border: 1px solid #e55e5d;
+    background: #fff;
+}
+
+button.btn-bnpp-major.inactive {
+	color: #fff;
+	border: 1px solid #bbb;
+    background: #bbb;
+	pointer-events: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/****************** MBE IDENTIFICATION BODY ******************/
+#identification-body {
+	background-color: #f3f3f3;
+	height: 100%;
+	width: 100%;
+}
+
+#identification-body .media-block {
+	width:100%;
+	position:relative;
+}
+
+#identification-body .media-block #bloc-actu {
+    width: 100%;
+    height: 100%;
+}
+
+#identification-body .identification-block {
+	min-width: 500px;
+	height:auto;
+	background: linear-gradient(90deg, rgba(6,135,94,1) 0%, rgba(39,134,167,1) 100%);
+	position:relative;
+	overflow:hidden;
+	border-left: 1px solid #DCDCDC;
+	border-right: 1px solid #DCDCDC;
+}
+
+#identification-body .identification-block .header {
+	text-align:center;
+	padding:18px 0;
+}
+
+#identification-body .identification-block .header span {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	color: #ffffff;
+	opacity: 1;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#identification-body .identification-block .selector button {
+    background-color: transparent;
+    color:#fff;
+	border:transparent;
+    cursor: pointer;
+	position:relative;
+	margin-bottom:20px;
+	padding-top:54px;
+	line-height:18px;
+	font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+	transition:0.3s;
+	opacity:0.5;
+}
+button#submit-lsf {
+   
+    width: 100%;
+}
+#identification-body .identification-block .selector button:last-child {
+    border-right:transparent;
+}
+
+#identification-body .identification-block .selector button.active {
+	opacity:1;
+}
+
+#identification-body .identification-block .selector button.crt {
+	background-image: url(/mbe/assets/icons/crt_icon-a0d2c9bfe5841f355631d334ebcf73c9.png);
+	background-size: 25px;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+#identification-body .identification-block .selector button.lsf {
+	background-image: url(/mbe/assets/icons/lsf_icon-33483e77e52b6e79a8a929f560e50bfe.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+#identification-body .identification-block .selector button.nvs {
+	background-image: url(/mbe/assets/icons/nvs_icon-9270ffcefa9b948c8f4de51ca50c6686.png);
+	background-size: 55px;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+/****************** MBE IDENTIFICATION BODY ******************/
+#identification-body {
+	background-color: #f3f3f3;
+	height: 100%;
+	width: 100%;
+}
+
+#identification-body .media-block {
+	width:100%;
+	position:relative;
+}
+
+#identification-body .media-block #bloc-actu {
+    width: 100%;
+    height: 100%;
+}
+
+#identification-body .identification-block {
+	min-width: 500px;
+	height:auto;
+	background: linear-gradient(90deg, rgba(6,135,94,1) 0%, rgba(39,134,167,1) 100%);
+	position:relative;
+	overflow:hidden;
+	border-left: 1px solid #DCDCDC;
+	border-right: 1px solid #DCDCDC;
+}
+
+#identification-body .identification-block .header {
+	text-align:center;
+	padding:18px 0;
+}
+
+#identification-body .identification-block .header span {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	color: #ffffff;
+	opacity: 1;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#identification-body .identification-block .selector button {
+    background-color: transparent;
+    color:#fff;
+	border:transparent;
+    cursor: pointer;
+	position:relative;
+	margin-bottom:20px;
+	padding-top:54px;
+	line-height:18px;
+	font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+	transition:0.3s;
+	opacity:0.5;
+}
+
+#identification-body .identification-block .selector button:last-child {
+    border-right:transparent;
+}
+
+#identification-body .identification-block .selector button.active {
+	opacity:1;
+}
+
+
+
+/****************** MBE IDENTIFICATION HELP BLOCK ******************/
+#identification-body .identification-block #help-block {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border: none;
+    background-color: #E0E0E0;
+    z-index: 5;
+	padding:30px;
+	overflow-y: scroll;
+}
+
+#identification-body .identification-block .selector button.crt {
+	background-image: url(src/assets/images/crt_icon-a0d2c9bfe5841f355631d334ebcf73c9.png);
+	background-size: 25px;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+#identification-body .identification-block .selector button.lsf {
+	background-image: url(src\assets\css\images\lsf_icon-33483e77e52b6e79a8a929f560e50bfe.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+#identification-body .identification-block .selector button.nvs {
+	background-image: url(src\assets\css\images\nvs_icon-9270ffcefa9b948c8f4de51ca50c6686.png);
+	background-size: 55px;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+#identification-body .identification-block #help-block h3 {
+	font-family: "BNPTypeRegular";
+    font-size: 16px;
+	border-bottom:1px solid #B5B5B5;
+}
+
+
+
+#identification-body .identification-block #help-block p {
+	font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+	line-height:24px;
+}
+
+#identification-body .identification-block #help-block h4 {
+    font-family: "BNPTypeRegular";
+    font-size: 16px;
+    color: #009864;
+}
+
+
+/****************** MBE IDENTIFICATION MODES ASSETS ******************/
+#identification-body .identification-block .content {
+	height: calc(100% - 170px);
+	background-color: #F3F3F3;
+	transition:0.3s;
+}
+
+#identification-body .identification-block .connexion_button, #identification-body .identification-block .auxilary_button {
+	width: 100%;
+    font-size: 16px;
+	border-radius: 6px;
+    cursor: pointer;
+	padding:6px;
+    text-align: center;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#identification-body .identification-block .connexion_button {
+    background-color: #009864;
+    border: 2px solid #009864;
+    color: #ffffff;
+}
+
+#identification-body .identification-block .connexion_button:hover {
+    background-color: #ffffff;
+    border: 2px solid #009864;
+    color: #009864;
+}
+
+#identification-body .identification-block .auxilary_button {
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
+    color: #1e1f21;
+}
+
+#identification-body .identification-block .auxilary_button:hover {
+    background-color: #ffffff;
+    border: 2px solid #009864;
+    color: #009864;
+}
+
+#identification-body .identification-block a#link-help {
+    text-decoration: underline;
+    font-size: 13px;
+    color: #5F5F5F;
+    cursor: pointer;
+	margin-top:1rem;
+}
+
+#identification-body .identification-block a#link-help:before {
+    content: "";
+    background-image: url(src/assets/images/help-a49cd92f439901e3e333459c81b62db3.png);
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: 22px;
+    border: none;
+    color: #9e9e9e;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px 30px 5px 0;
+}
+
+#identification-body .identification-block a#link-help:hover {
+    color:#262722;
+}
+
+
+
+/****************** MBE FORMS ******************/
+#identification-body .identification-block .content .bnpp-form-group {
+	position: relative;
+	width: 100%;
+}
+
+#identification-body .identification-block .content .bnpp-form-group.old-code {
+	display:block;
+}
+
+#identification-body .identification-block .content .bnpp-form-group input {
+	display: block;
+	position: relative;
+	background: #fff;
+	padding: 12px 50px 12px 15px;
+	font-size: 18px;
+	border-width: 0;
+	width: 100%;
+	border-radius: 3px;
+}
+
+#identification-body .identification-block .content .bnpp-form-group .control-label {
+	pointer-events: none;
+	color: #262722;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+#identification-body .identification-block .content .bnpp-form-group .bar {
+	position: relative;
+	border-bottom: 1px solid #9e9e9e;
+	display: block;
+}
+
+#identification-body .identification-block .content .bnpp-form-group span {
+	margin-top: 8px;
+	font-size: 12px;
+	color: #e55e5d;
+	display: none;
+}
+
+#identification-body .identification-block .content .bnpp-form-group.error span {
+	display:block;
+}
+
+#identification-body .identification-block .content .bnpp-form-group input:focus {
+	outline: none;
+}
+
+
+
+#identification-body .identification-block .content .bnpp-form-group input:placeholder-shown ~ .clear-button {
+	display:none;
+}
+
+/****************** MBE IDENTIFICATION MODES SIZES ******************/
+#identification-body .identification-block .content .id-form {
+	padding: 2.5rem 3rem;
+	width:100%;
+	min-height:530px;
+}
+
+/****************** MBE IDENTIFICATION NVS ASSETS ******************/
+
+#identification-body .identification-block .content #nvs_content #browser_not_enrolled {
+	font-family:'Roboto', sans-serif;
+	text-align:center;
+}
+
+
+
+#identification-body .identification-block .content #nvs_content h3 {
+	font-size: 17px;
+	color: #32332D;
+	font-weight: bold;
+}
+
+#identification-body .identification-block .content #nvs_content p {
+	font-size: 13px;
+}
+
+#identification-body .identification-block .content #nvs_content button.nvs-button {
+	padding: 6px 25px;
+    background-color: #009864;
+    border: 2px solid #009864;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+	font-size:14px;
+}
+
+#identification-body .identification-block .content #nvs_content button.nvs-button:hover {
+    background-color: #ffffff;
+    color: #009864;
+    border: 2px solid #009864;
+}
+
+#identification-body .identification-block .content #nvs_content a.nvs-link {
+    display:block;
+    text-decoration:underline;
+    font-size: 14px;
+    color: #7a7676;
+    cursor: pointer;
+}
+
+#identification-body .identification-block .content #nvs_content a.nvs-link:hover, #identification-body .identification-block .content #nvs_content a#link-help:hover {
+	color: #262722;
+}
+
+/*
+#identification-body .identification-block .content #nvs_content #browser_not_enrolled a#link-help {
+    color: #373737;
+	text-decoration:underline;
+	font-weight:bold;
+}
+
+#identification-body .identification-block .content #nvs_content #browser_not_enrolled  a#link-help:before {
+	content:"";
+}
+*/
+
+
+/***************************************************/
+/**************** MODAL IFRAME BNPP ****************/
+/***************************************************/
+.iframe-container {
+  overflow: hidden;
+  padding-top: 85vh;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
+body.modal-open .cookiebox {
+	margin-right: calc(3rem + 16px)!important;
+}
+
+
+/****************** MBE MISC ASSETS ******************/
+.footer-mbe {
+	width:100%;
+}
+
+
+/******** MEDIA QUERIES ********/
+
+@media (max-width: 512px) {	
+	nav .navbar-brand .header-logo-moto {
+		display:none;
+	}
+	
+	#identification-body .identification-block .content #nvs_content .nvs-grey-icon {
+		display:none;
+	}
+}
+
+@media (max-width: 576px) {	
+	.btn-bnpp-major, .btn-bnpp-major.normal {
+			width:100%!important;
+	}
+	
+	body.modal-open .cookiebox {
+		margin-right: 1rem!important;
+	}
+	
+	#identification-body .identification-block {
+		border-left:0;
+		border-right:0;
+	}
+	
+	#identification-body .container {
+		padding-left:0;
+		padding-right:0;
+	}
+}
+
+@media (max-width: 768px) {
+	
+	#identification-body .identification-block {
+		margin: 0;
+		min-width: auto;
+	}
+}
+
+@media (max-width: 991px) {
+	body.modal-open .cookiebox {
+		margin-right: calc(1rem + 16px)!important;
+	}
+	
+	nav .navbar-brand {
+		margin:0 auto 0 15px;
+	}
+	
+	nav .language {
+		margin-right:15px;
+	}
+	
+	#identification-body .identification-block {
+		border-bottom:1px solid #DCDCDC;
+		width:100%;
+	}
+	
+	#identification-body .media-block #bloc-actu {
+		position:relative;
+		padding:0;
+		bottom:0;
+	}
+	
+	#identification-body .identification-block .content .id-form {
+		min-height:auto;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 1300px;
+	}
+}
+
+/* EXAMPLE */
+.example {
+	background-color:black;
+	margin-bottom:0.75em;
+}
+
+.example:last-child {
+	margin-bottom:0;
+}
